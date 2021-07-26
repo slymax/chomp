@@ -5,13 +5,13 @@ export class KV {
         const db = new DB(path);
         db.query("CREATE TABLE IF NOT EXISTS data (key TEXT PRIMARY KEY, value TEXT)");
         this.get = key => {
-            return [...db.query(`SELECT value FROM data WHERE key='${key}'`)].flat()[0];
+            return [...db.query("SELECT value FROM data WHERE key = ?", [key])].flat()[0];
         };
         this.set = (key, value) => {
-            db.query(`REPLACE INTO data VALUES ('${key}', '${value}')`);
+            db.query("REPLACE INTO data VALUES (?, ?)", [key, value]);
         };
         this.delete = key => {
-            db.query(`DELETE FROM data WHERE key='${key}'`);
+            db.query("DELETE FROM data WHERE key = ?", [key]);
         };
         this.list = () => {
             return [...db.query("SELECT key FROM data")].flat();
