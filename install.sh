@@ -6,4 +6,4 @@ then
     echo 'https://deno.land/#installation'
     exit
 fi
-deno install --allow-read --allow-write --allow-env --allow-net --allow-run --no-check --unstable -r -f https://cdn.jsdelivr.net/gh/slymax/chomp/chomp.js
+deno install --allow-all --no-check --unstable --reload --force https://cdn.jsdelivr.net/gh/slymax/chomp/chomp.js
