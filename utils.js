@@ -16,7 +16,7 @@ export const createResponse = (content, type) => {
 	}
 	return new Response(content, {
 		headers: {
-			"content-type": content_type
+			"content-type": `${content_type}; charset=UTF-8`
 		}
 	});
 };
