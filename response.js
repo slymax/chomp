@@ -1,4 +1,5 @@
 const methods = {
+    xml: "application/xml",
     text: "text/plain",
     html: "text/html"
 };
